@@ -47,8 +47,8 @@ class DHT11:
                     temperature,
                 )
                 """
-                dht11.humidity = _humidity
-                dht11.temperature = _temperature
+                self.humidity = _humidity
+                self.temperature = _temperature
 
             time.sleep(
                 3.0,
