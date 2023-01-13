@@ -15,9 +15,16 @@ app = Flask(
     "/dht11/readings",
 )
 def DHT11_readings():
+    if not dht11.humidity or not dht11.temperature:
+        return "Couldn't read DHT11 sensor's values."
+
     data = {
-        "humidity": dht11.humidity,
-        "temperature": dht11.temperature,
+        "humidity": int(
+            dht11.humidity,
+        ),
+        "temperature": int(
+            dht11.temperature,
+        ),
     }
 
     return render_template(
