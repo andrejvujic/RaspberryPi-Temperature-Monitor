@@ -25,7 +25,7 @@
         justify-content: center;
         padding: 16px;
         background-color: #ccc;
-        width: 184px;
+        min-width: 184px;
       }
       .title {
         text-transform: uppercase;
@@ -52,14 +52,14 @@
       <div class="dht11-reading">
         <div class="title">Temperature</div>
         <div class="value">
-          <div class="number">10</div>
+          <div class="number">{{ data["temperature"] }}</div>
           <div class="unit">°C</div>
         </div>
       </div>
       <div class="dht11-reading">
         <div class="title">Humidity</div>
         <div class="value">
-          <div class="number">10</div>
+          <div class="number">{{ data["humidity"] }}</div>
           <div class="unit">%</div>
         </div>
       </div>
