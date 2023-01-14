@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect
 from dht11 import DHT11
 
 dht11 = DHT11(
@@ -45,6 +45,24 @@ def DHT11_readings():
     return render_template(
         f"DHT11_Readings_{locale}.html",
         data=data,
+    )
+
+
+@app.route(
+    "/dht11/readings/en",
+)
+def DHT11_readings_EN():
+    return redirect(
+        "/dht/readings?l=EN"
+    )
+
+
+@app.route(
+    "/dht11/readings/sr",
+)
+def DHT11_readings_EN():
+    return redirect(
+        "/dht/readings?l=SR"
     )
 
 
