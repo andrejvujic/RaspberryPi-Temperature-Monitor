@@ -45,7 +45,7 @@ def DHT11_readings():
         "temperature": int(
             dht11.temperature,
         ),
-        "last_updated_on": _formatted_date(
+        "last-updated-on": _formatted_date(
             dht11.last_updated_on,
         ),
     }
