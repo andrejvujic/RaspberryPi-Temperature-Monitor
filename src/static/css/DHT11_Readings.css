@@ -50,6 +50,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  width: max-content;
   bottom: 12px;
   display: grid;
   place-items: center;
