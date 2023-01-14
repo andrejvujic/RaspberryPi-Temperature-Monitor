@@ -68,7 +68,7 @@ def DHT11_readings_EN():
 @app.route(
     "/dht11/readings/sr",
 )
-def DHT11_readings_EN():
+def DHT11_readings_SR():
     return redirect(
         "/dht/readings?l=SR"
     )
