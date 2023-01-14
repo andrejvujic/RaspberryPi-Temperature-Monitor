@@ -1,0 +1,40 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.container {
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.dht11-reading {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #ccc;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+}
+.title {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.value .number {
+  font-size: 64px;
+}
+.value .unit {
+  font-size: 32px;
+  color: rgb(77, 77, 77);
+}

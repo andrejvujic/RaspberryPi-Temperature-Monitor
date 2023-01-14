@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DHT11</title>
+    <link rel="stylesheet" href="./DHT11_Readings.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="dht11-reading">
+        <div class="title">Temperatura</div>
+        <div class="value">
+          <div class="number">{{ data["temperature"] }}</div>
+          <div class="unit">°C</div>
+        </div>
+      </div>
+      <div class="dht11-reading">
+        <div class="title">Vlažnost</div>
+        <div class="value">
+          <div class="number">{{ data["humidity"] }}</div>
+          <div class="unit">%</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

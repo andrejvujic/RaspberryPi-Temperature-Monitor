@@ -28,7 +28,7 @@ def DHT11_readings():
     }
 
     return render_template(
-        "DHT11_Readings.html",
+        "DHT11_Readings_SR.html",
         data=data,
     )
 
