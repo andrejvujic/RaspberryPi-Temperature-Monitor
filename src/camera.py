@@ -69,7 +69,7 @@ class VideoCamera:
         )
         return image
 
-    def save_image(self, path: str) -> int:
+    def save_image(self) -> int:
         image = self.get_image()
 
         id = time.time() * 1000
