@@ -5,8 +5,6 @@ import cv2
 import time
 import numpy as np
 
-from picamera import PiCamera
-
 
 class VideoCamera:
     def __init__(
@@ -70,12 +68,15 @@ class VideoCamera:
         return image
 
     def save_image(self) -> int:
+        image = self.get_image()
+
         id = int(
             time.time() * 1000,
         )
 
-        PiCamera().capture(
-            f"./static/generated/{id}.jpg",
+        cv2.imwrite(
+            f"/static/generated/{id}.jpg",
+            image,
         )
 
         return id
