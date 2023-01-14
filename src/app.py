@@ -61,7 +61,7 @@ def DHT11_readings():
 )
 def DHT11_readings_EN():
     return redirect(
-        "/dht/readings?l=EN"
+        "/dht11/readings?l=EN"
     )
 
 
@@ -70,7 +70,7 @@ def DHT11_readings_EN():
 )
 def DHT11_readings_SR():
     return redirect(
-        "/dht/readings?l=SR"
+        "/dht11/readings?l=SR"
     )
 
 
