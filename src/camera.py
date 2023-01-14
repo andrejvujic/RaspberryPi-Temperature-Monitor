@@ -10,7 +10,7 @@ class VideoCamera:
         self,
         flip_h: bool = False,
         flip_v: bool = False,
-        index: int = 0,
+        index: int = -1,
         zoom_factor: float = 1.0,
     ) -> None:
         self.flip_h = flip_h
