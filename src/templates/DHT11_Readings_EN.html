@@ -33,10 +33,14 @@
     </div>
     <div class="locale-options">
       <a href="{{ url_for('app.DHT11_Readings_SR') }}"
-        ><img src="../static/images/SR.png" alt="Serbia"
+        ><img
+          src="{{ url_for('static', filename='images/SR.png') }}"
+          alt="Serbia"
       /></a>
       <a href="{{ url_for('app.DHT11_Readings_EN') }}"
-        ><img src="../static/images/EN.png" alt="United States"
+        ><img
+          src="{{ url_for('static', filename='images/EN.png') }}"
+          alt="United States"
       /></a>
     </div>
   </body>
