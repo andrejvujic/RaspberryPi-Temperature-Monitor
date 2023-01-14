@@ -53,12 +53,12 @@ def DHT11_readings():
         "last-updated-on": _formatted_date(
             dht11.last_updated_on,
         ),
-        "image-id": image_id,
     }
 
     return render_template(
         f"DHT11_Readings_{locale}.html",
         data=data,
+        image_id=image_id,
     )
 
 
