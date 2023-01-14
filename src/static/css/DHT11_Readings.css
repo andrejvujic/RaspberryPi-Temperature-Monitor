@@ -62,3 +62,25 @@
 .last-update-time-value {
   font-size: 24px;
 }
+
+.locale-options {
+  position: absolute;
+  bottom: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  gap: 8px;
+}
+
+.locale-options a {
+  display: block;
+  margin-right: 16px;
+  width: 52px;
+}
+
+.locale-options a img {
+  width: inherit;
+  object-fit: cover;
+}
