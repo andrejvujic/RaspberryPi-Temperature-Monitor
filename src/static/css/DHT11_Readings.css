@@ -82,6 +82,7 @@
   object-fit: cover;
 }
 
-.locale-options a.disabled {
+.disabled {
   opacity: 70%;
+  pointer-events: none;
 }
