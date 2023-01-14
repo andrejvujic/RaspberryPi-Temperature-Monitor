@@ -64,8 +64,6 @@
 }
 
 .locale-options {
-  position: absolute;
-  top: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
