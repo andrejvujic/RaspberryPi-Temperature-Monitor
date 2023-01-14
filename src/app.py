@@ -1,11 +1,12 @@
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect, url_for
+
 from dht11 import DHT11
-"""
 from camera import VideoCamera
 
-camera = VideoCamera()
-"""
+camera = VideoCamera(
+    flip_v=True,
+)
 
 dht11 = DHT11(
     pin=23,
@@ -39,21 +40,12 @@ def DHT11_readings():
     if not dht11.humidity or not dht11.temperature:
         return "Couldn't read DHT11 sensor's values."
 
-    """
     image_id = camera.save_image()
-    """
 
     def _formatted_date(date: datetime) -> str:
         _ = "u" if locale == "SR" else "at"
 
         return f"{date.day}-{date.month}-{date.year} {_} {date.strftime('%H')}:{date.strftime('%M')}:{date.strftime('%S')}"
-
-    """
-    "background-image-url": url_for(
-        "static",
-        filename=f"generated/{image_id}.jpg",
-    )
-    """
 
     data = {
         "humidity": int(
@@ -65,7 +57,10 @@ def DHT11_readings():
         "last-updated-on": _formatted_date(
             dht11.last_updated_on,
         ),
-
+        "background-image-url": url_for(
+            "static",
+            filename=f"generated/{image_id}.jpg",
+        ),
     }
 
     return render_template(
@@ -115,6 +110,4 @@ if __name__ == "__main__":
         )
     finally:
         dht11.kill_thread()
-        """
         camera.kill()
-        """
