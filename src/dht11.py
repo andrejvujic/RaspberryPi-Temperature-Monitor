@@ -1,3 +1,4 @@
+from datetime import datetime
 import Adafruit_DHT
 import threading
 import time
@@ -17,6 +18,8 @@ class DHT11:
         self.thread = threading.Thread(
             target=self.update,
         )
+
+        self.last_updated_on = datetime.now()
 
         self.THREAD_ALIVE = None
 
@@ -49,6 +52,8 @@ class DHT11:
                 """
                 self.humidity = _humidity
                 self.temperature = _temperature
+
+                self.last_updated_on = datetime.now()
 
             time.sleep(
                 3.0,
