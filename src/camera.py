@@ -14,9 +14,6 @@ class VideoCamera:
         index: int = 0,
         zoom_factor: float = 1.0,
     ) -> None:
-
-        _ = self._load_config()
-
         self.flip_h = flip_h
         self.flip_v = flip_v
 
