@@ -81,3 +81,7 @@
   width: inherit;
   object-fit: cover;
 }
+
+.locale-options a.disabled {
+  opacity: 70%;
+}
