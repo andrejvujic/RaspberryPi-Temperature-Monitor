@@ -55,7 +55,7 @@ def DHT11_readings():
         ),
         "background-image-url": url_for(
             "static",
-            f"generated/{image_id}.jpg",
+            filename=f"generated/{image_id}.jpg",
         )
     }
 
