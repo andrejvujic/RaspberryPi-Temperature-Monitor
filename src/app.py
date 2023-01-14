@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, request, jsonify, render_template, redirect
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 from dht11 import DHT11
 from camera import VideoCamera
 
@@ -53,12 +53,15 @@ def DHT11_readings():
         "last-updated-on": _formatted_date(
             dht11.last_updated_on,
         ),
+        "background-image-url": url_for(
+            "static",
+            f"generated/{image_id}.jpg",
+        )
     }
 
     return render_template(
         f"DHT11_Readings_{locale}.html",
         data=data,
-        image_id=image_id,
     )
 
 
