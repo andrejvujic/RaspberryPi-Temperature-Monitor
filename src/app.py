@@ -36,7 +36,7 @@ def DHT11_readings():
     def _formatted_date(date: datetime) -> str:
         _ = "u" if locale == "SR" else "at"
 
-        return f"{date.day}-{date.month}-{date.year} {_} {date.hour}:{date.minute}:{date.second}"
+        return f"{date.day}-{date.month}-{date.year} {_} {date.strftime('%H')}:{date.strftime('%M')}:{date.strftime('%S')}"
 
     data = {
         "humidity": int(
