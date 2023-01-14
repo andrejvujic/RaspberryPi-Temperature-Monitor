@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, request, jsonify, render_template
 from dht11 import DHT11
 
 dht11 = DHT11(
@@ -15,6 +15,21 @@ app = Flask(
     "/dht11/readings",
 )
 def DHT11_readings():
+    args = request.args
+
+    locale = args.get(
+        "l",
+    )
+
+    if isinstance(
+        locale,
+        str,
+    ):
+        locale = locale.upper()
+
+    if not locale or locale not in ["SR", "EN"]:
+        locale = "SR"
+
     if not dht11.humidity or not dht11.temperature:
         return "Couldn't read DHT11 sensor's values."
 
@@ -28,7 +43,7 @@ def DHT11_readings():
     }
 
     return render_template(
-        "DHT11_Readings_SR.html",
+        f"DHT11_Readings_{locale}.html",
         data=data,
     )
 
