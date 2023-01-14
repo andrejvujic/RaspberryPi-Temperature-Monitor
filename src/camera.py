@@ -42,11 +42,12 @@ class VideoCamera:
 
     def get_frame(self) -> Any:
         _, frame = self.cap.read()
-
+        frame = self.apply_flips(
+            frame=frame,
+        )
         return frame
 
         if _:
-            frame = self.apply_flips(frame=frame)
             frame = self.zoom(frame=frame)
 
             self.previous_frame = frame
