@@ -51,4 +51,14 @@
   width: 100%;
   display: grid;
   place-items: center;
+  gap: 8px;
+}
+
+.last-update-time-title {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.last-update-time-value {
+  font-size: 24px;
 }
