@@ -1,4 +1,4 @@
-
+from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect
 from dht11 import DHT11
 
@@ -33,12 +33,20 @@ def DHT11_readings():
     if not dht11.humidity or not dht11.temperature:
         return "Couldn't read DHT11 sensor's values."
 
+    def _formatted_date(date: datetime) -> str:
+        _ = "u" if locale == "SR" else "at"
+
+        return f"{date.day}-{date.month}-{date.year} {_} {date.hour}:{date.minute}:{date.second}"
+
     data = {
         "humidity": int(
             dht11.humidity,
         ),
         "temperature": int(
             dht11.temperature,
+        ),
+        "last_updated_on": _formatted_date(
+            dht11.last_updated_on,
         ),
     }
 
