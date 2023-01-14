@@ -42,6 +42,9 @@ class VideoCamera:
 
     def get_frame(self) -> Any:
         _, frame = self.cap.read()
+
+        return frame
+
         if _:
             frame = self.apply_flips(frame=frame)
             frame = self.zoom(frame=frame)
@@ -61,6 +64,8 @@ class VideoCamera:
 
     def get_image(self) -> Any:
         frame = self.get_frame()
+        return frame
+
         _, image = cv2.imencode(
             ".jpg",
             frame,
