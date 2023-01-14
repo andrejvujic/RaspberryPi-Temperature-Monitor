@@ -75,7 +75,7 @@ class VideoCamera:
         )
 
         cv2.imwrite(
-            f"./static/generated/{id}.jpg",
+            f"/static/generated/{id}.jpg",
             image,
         )
 
