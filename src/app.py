@@ -36,6 +36,9 @@ def DHT11_readings():
     if not dht11.humidity or not dht11.temperature:
         return "Couldn't read DHT11 sensor's values."
 
+    id = camera.save_image()
+    print(id)
+
     def _formatted_date(date: datetime) -> str:
         _ = "u" if locale == "SR" else "at"
 
