@@ -76,7 +76,7 @@ class VideoCamera:
 
         cv2.imwrite(
             f"/static/generated/{id}.jpg",
-            image.to_bytes(),
+            image.tobytes(),
         )
 
         return id
