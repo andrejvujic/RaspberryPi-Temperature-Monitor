@@ -53,13 +53,32 @@ class VideoCamera:
 
         return self.previous_frame
 
-    def get_image(self) -> Any:
+    def get_image_bytes(self) -> Any:
         frame = self.get_frame()
         _, image = cv2.imencode(
             self.out_file_type,
             frame,
         )
         return image.tobytes()
+
+    def get_image(self) -> Any:
+        frame = self.get_frame()
+        _, image = cv2.imencode(
+            self.out_file_type,
+            frame,
+        )
+        return image
+
+    def save_image(self, path: str) -> int:
+        image = self.get_image()
+
+        id = time.time() * 1000
+        cv2.imwrite(
+            f"/static/generated/{id}{self.out_file_type}",
+            image,
+        )
+
+        return id
 
     def zoom(self, frame: Any, coord=None) -> Any:
         h, w, _ = [self.zoom_factor * i for i in frame.shape]
