@@ -1,5 +1,6 @@
 import json
 from typing import Any
+import os
 import cv2
 import time
 import numpy as np
@@ -10,7 +11,7 @@ class VideoCamera:
         self,
         flip_h: bool = False,
         flip_v: bool = False,
-        index: int = -1,
+        index: int = 1,
         zoom_factor: float = 1.0,
     ) -> None:
         self.flip_h = flip_h
@@ -69,9 +70,12 @@ class VideoCamera:
     def save_image(self) -> int:
         image = self.get_image()
 
-        id = time.time() * 1000
+        id = int(
+            time.time() * 1000,
+        )
+
         cv2.imwrite(
-            f"/static/generated/{id}.jpg",
+            f"./static/generated/{id}.jpg",
             image,
         )
 
