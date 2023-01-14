@@ -8,7 +8,6 @@ import numpy as np
 class VideoCamera:
     def __init__(
         self,
-        out_file_type: str = ".jpg",
         flip_h: bool = False,
         flip_v: bool = False,
         index: int = 0,
@@ -23,8 +22,6 @@ class VideoCamera:
         self.cap = cv2.VideoCapture(
             self.index,
         )
-
-        self.out_file_type = out_file_type
 
         self.previous_frame = None
 
@@ -56,7 +53,7 @@ class VideoCamera:
     def get_image_bytes(self) -> Any:
         frame = self.get_frame()
         _, image = cv2.imencode(
-            self.out_file_type,
+            ".jpg",
             frame,
         )
         return image.tobytes()
@@ -64,7 +61,7 @@ class VideoCamera:
     def get_image(self) -> Any:
         frame = self.get_frame()
         _, image = cv2.imencode(
-            self.out_file_type,
+            ".jpg",
             frame,
         )
         return image
@@ -74,7 +71,7 @@ class VideoCamera:
 
         id = time.time() * 1000
         cv2.imwrite(
-            f"/static/generated/{id}{self.out_file_type}",
+            f"/static/generated/{id}.jpg",
             image,
         )
 
