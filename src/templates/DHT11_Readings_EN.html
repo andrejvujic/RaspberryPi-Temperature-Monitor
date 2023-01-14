@@ -9,6 +9,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/DHT11_Readings.css') }}"
     />
+    <style>
+      body {
+        background: url("/static/generated/{{ data['image-id'] }}.jpg");
+      }
+    </style>
   </head>
   <body>
     <div class="container">
