@@ -1,10 +1,13 @@
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect
 from dht11 import DHT11
+from camera import VideoCamera
 
 dht11 = DHT11(
     pin=23,
 )
+
+camera = VideoCamera()
 
 app = Flask(
     __name__,
@@ -97,3 +100,4 @@ if __name__ == "__main__":
         )
     finally:
         dht11.kill_thread()
+        camera.kill()
